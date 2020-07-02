@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { DatabaseService } from 'src/app/servicios/database.service';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-form-producto',
@@ -20,7 +21,8 @@ export class FormProductoComponent implements OnInit {
 
   constructor(private authS : AuthService, 
     private db : DatabaseService,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private firestore: AngularFirestore) {
     this.miFormulario = this.formBuilder.group({
         nombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]{3,20}$')]],
         marca: ['', [Validators.required, Validators.pattern('^[a-zA-Z]{3,20}$')]],
@@ -44,15 +46,37 @@ export class FormProductoComponent implements OnInit {
       local : pLocal
     }
 
-    this.db.crear('productos',jsonLocal).then(exito =>{
+  
 
-      this.nombre= null;
-      this.marca= null;
-      this.stock = null;
-      this.tipo = null;
-      this.precio = null;
-      this.local = null;
+    let fb = this.firestore.collection('locales');
+
+    fb.get().subscribe( datos => {
+     
+     datos.forEach( (dato:any) => {
+
+
+        if(dato.data().nombre == pLocal)
+        {
+          this.db.crear('productos',jsonLocal).then(exito =>{
+
+            this.nombre= null;
+            this.marca= null;
+            this.stock = null;
+            this.tipo = null;
+            this.precio = null;
+            this.local = null;
+            alert("¡El producto se cargo con exito!");
+          })
+        }
+        else
+        {
+          alert("No se encuentra el local");
+        }
+     })
+
+
     })
+
 
   }
 

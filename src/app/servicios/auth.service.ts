@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { User } from 'firebase';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ export class AuthService {
 
   public user : User;
 
-  constructor(public AFauth : AngularFireAuth) { }
+  constructor(public AFauth : AngularFireAuth,
+    private router : Router) { }
 
   login(correo : string, contraseña : string){
 
@@ -19,8 +21,10 @@ export class AuthService {
   
     this.AFauth.signInWithEmailAndPassword(correo, contraseña)
     
-    .then (user => resolve(user))
-    
+    .then (user => resolve(user.user.getIdToken().then(token => {
+      localStorage.setItem('token',token);
+      this.router.navigate(['/home']);
+    })))
     .catch(err => rejected(err))
   
     });
@@ -33,7 +37,10 @@ export class AuthService {
   
       this.AFauth.createUserWithEmailAndPassword(correo, contraseña)
       
-      .then (user => resolve(user.user))
+      .then (user => resolve(user.user.getIdToken().then(token => {
+        localStorage.setItem('token',token);
+        this.router.navigate(['/home']);
+      })))
       
       .catch(err => rejected(err))
     

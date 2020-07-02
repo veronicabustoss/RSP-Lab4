@@ -10,6 +10,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { MenuComponent } from './page/menu/menu.component';
 import { FormLocalComponent } from './componentes/form-local/form-local.component';
 import { FormProductoComponent } from './componentes/form-producto/form-producto.component';
+import { AuthDeslogeoGuard } from './guards/auth-deslogeo.guard';
+import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 
 
 const routes: Routes = [
@@ -18,12 +20,21 @@ const routes: Routes = [
     component : HomeComponent
   },
   {
+    path: 'home',
+    component  : HomeComponent,
+
+  },
+  {
     path : 'login',
-    component : LoginComponent
+    component : LoginComponent,
+    canActivate : [AuthDeslogeoGuard],
+    children: []
   },
   {
     path: 'registro',
-    component  : RegistroComponent
+    component  : RegistroComponent,
+    canActivate : [AuthDeslogeoGuard],
+    children: []
   },
   {
     path: 'form-local',
@@ -42,6 +53,11 @@ const routes: Routes = [
     component : FormProductoComponent,
     canActivate : [AuthGuard],
     children: []
+  },
+  {
+    path : 'acerda-de',
+    component : AcercaDeComponent,
+
   },
   {
     path : '**',

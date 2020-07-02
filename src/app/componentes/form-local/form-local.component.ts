@@ -44,6 +44,7 @@ export class FormLocalComponent implements OnInit {
       this.telefono= null;
       this.localidad = null;
       this.email = null;
+      alert("El local se creo con exito!");
     })
 
   }

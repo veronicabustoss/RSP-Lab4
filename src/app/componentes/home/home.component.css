@@ -1,0 +1,39 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+  background: rgba(68, 85, 102, 0.685);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.login {
+  width: 450px;
+  margin: 12px auto;
+  font-size: 16px;
+ 
+}
+
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+.login-container {
+  padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 7px;
+  color: steelblue;
+}
+
+h1{
+    text-align: center;
+    color: dodgerblue;
+    font-size: 80px;
+    top: 30% !important;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

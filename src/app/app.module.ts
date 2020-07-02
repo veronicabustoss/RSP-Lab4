@@ -25,6 +25,8 @@ import { FormLocalComponent } from './componentes/form-local/form-local.componen
 import { JwtModule } from "@auth0/angular-jwt";
 import { FormProductoComponent } from './componentes/form-producto/form-producto.component';
 import { ModificarProductoComponent } from './componentes/modificar-producto/modificar-producto.component';
+import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
+
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -41,7 +43,8 @@ export function tokenGetter() {
     MenuComponent,
     FormLocalComponent,
     FormProductoComponent,
-    ModificarProductoComponent
+    ModificarProductoComponent,
+    AcercaDeComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ export function tokenGetter() {
       config: {
         tokenGetter: tokenGetter
       }
+      
     }),
   ],
   providers: [],

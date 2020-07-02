@@ -40,6 +40,7 @@ export class ListadoComponent implements OnInit {
 
   modificarProducto(producto)
   {
+    this.modificar = false;
     let auxiliar = {
       nombre : producto.nombre,
       precio : producto.precio,
@@ -51,7 +52,10 @@ export class ListadoComponent implements OnInit {
 
     this.auxcargarProducto = auxiliar;
     this.productoAux = producto;
-    this.modificar = true;
+    setTimeout(() => {
+      this.modificar = true;
+    }, 1000);
+    
   }
 
   funCambiar(e)

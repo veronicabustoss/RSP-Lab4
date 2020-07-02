@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { DatabaseService } from 'src/app/servicios/database.service';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -17,7 +18,8 @@ export class RegistroComponent implements OnInit {
 
   constructor(private authS : AuthService, 
     private db : DatabaseService,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private router : Router) {
     this.miFormulario = this.formBuilder.group({
         nombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]{3,20}$')]],
         correo: ['', [Validators.required, Validators.email] ],
@@ -36,7 +38,9 @@ export class RegistroComponent implements OnInit {
       nombre : nombre,
     }
     this.authS.registrarUsuario(correo,password);
-    this.db.crear('usuarios',jsonUsuario);
+    this.db.crear('usuarios',jsonUsuario).then((resultado : any) => {
+      console.log("El usuario se creo con exito.");
+    })
 
   }
 

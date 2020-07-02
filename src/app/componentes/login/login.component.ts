@@ -31,16 +31,7 @@ export class LoginComponent implements OnInit {
 
   logearse(correo : string, contraseña : string)
   {
-    this.authS.login(correo,contraseña).then((resultado : any) => {
-
-      resultado.user.getIdToken().then(token => {
-        
-        localStorage.setItem('token',token);
-        this.router.navigate(['/']);
-        
-      })
-      
-    })
+    this.authS.login(correo,contraseña);
   }
 
 }
