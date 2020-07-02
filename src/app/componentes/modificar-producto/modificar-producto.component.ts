@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { DatabaseService } from 'src/app/servicios/database.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-modificar-producto',
@@ -14,9 +15,20 @@ export class ModificarProductoComponent implements OnInit {
   @Output() cambio = new EventEmitter();
   modificar = true;
   productoAux : any;
+  miFormulario : FormGroup;
  
   constructor(private db : DatabaseService,
-    private firestore: AngularFirestore) { }
+    private formBuilder: FormBuilder,
+    private firestore: AngularFirestore) {
+    this.miFormulario = this.formBuilder.group({
+        nombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]{3,20}$')]],
+        marca: ['', [Validators.required, Validators.pattern('^[a-zA-Z]{3,20}$')]],
+        stock: ['', [Validators.required, Validators.pattern('^[0-9]{1,5}$')]],
+        tipo: ['', [Validators.required, Validators.pattern('^[a-zA-Z]{3,20}$')]],
+        precio: ['', [Validators.required, Validators.pattern('^[0-9]{1,5}$')] ],
+        local: ['', [Validators.required, Validators.pattern('^[a-zA-Z]{3,20}$')]],
+     }); 
+     }
 
   ngOnInit(): void {
     this.productoAux = this.producto;
