@@ -1,0 +1,17 @@
+<div class="login">
+    <div class="login-triangle"></div>
+    
+    <h2 class="login-header">Registrarse</h2>
+  
+    <div class="login-container">
+    
+        <form [formGroup]="miFormulario">
+            <p>Nombre:<input type="text" formControlName="nombre" [(ngModel)]="nombre" class="form-control" ></p>
+            <p>Correo:<input type="email" formControlName="correo" [(ngModel)]="correo" class="form-control" ></p>
+            <p>Contraseña:<input type="password" formControlName="password" [(ngModel)]="password" class="form-control"  ></p>
+        </form>
+    
+        <p><button class="btn btn-primary" (click)="registrarUsuario(correo,password,nombre)" [disabled]="!miFormulario.valid">Registrarse</button></p>
+    
+    </div>
+  </div>

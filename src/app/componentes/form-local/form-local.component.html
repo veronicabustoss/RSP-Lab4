@@ -1,0 +1,18 @@
+<div class="login">
+    <div class="login-triangle"></div>
+    
+    <h2 class="login-header">Cargar Local</h2>
+  
+    <div class="login-container">
+    
+        <form [formGroup]="miFormulario">
+            <p>Nombre:<input type="text" formControlName="nombre" [(ngModel)]="nombre" class="form-control" ></p>
+            <p>Telefono:<input type="number" formControlName="telefono" [(ngModel)]="telefono" class="form-control"  ></p>
+            <p>Localidad:<input type="text" formControlName="localidad" [(ngModel)]="localidad" class="form-control"  ></p>
+            <p>Email:<input type="email" formControlName="email" [(ngModel)]="email" class="form-control" ></p>
+        </form>
+    
+        <p><button class="btn btn-danger" (click)="cargarLocal(nombre,telefono,localidad,email)" [disabled]="!miFormulario.valid">Registrarse</button></p>
+    
+    </div>
+  </div>

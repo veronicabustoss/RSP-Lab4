@@ -1,0 +1,39 @@
+<!-- 
+<div class="card" style="width: 35%; ">
+    
+    <div class="card-body">
+      
+        <h5 class="card-title" style="text-align: center;">Iniciar sesion</h5>
+      
+
+            <div class="form-group">
+                <label>Correo</label>
+                <input type="email" [(ngModel)]="correo" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label >Contraseña</label>
+                <input type="password" [(ngModel)]="password" class="form-control" >
+            </div>
+
+        <button type="submit" (click)="logearse(correo,password)"class="btn btn-success">Ingresar</button>
+    
+    </div>
+    
+</div> -->
+
+<div class="login">
+    <div class="login-triangle"></div>
+    
+    <h2 class="login-header">Iniciar sesion</h2>
+  
+    
+    <div class="login-container">
+        <form [formGroup]="miFormulario">
+            <p>Correo:<input type="email" formControlName="correo" [(ngModel)]="correo"  class="form-control" ></p>
+            <p>Contraseña:<input type="password" formControlName="password" [(ngModel)]="password"  class="form-control" ></p>
+        </form>
+      <p><button class="btn btn-primary" (click)="logearse(correo,password)" [disabled]="!miFormulario.valid">Enviar</button></p>
+
+    </div>
+  </div>
+

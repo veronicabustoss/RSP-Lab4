@@ -1,0 +1,20 @@
+<div class="login">
+    <div class="login-triangle"></div>
+    
+    <h2 class="login-header">Cargar Producto</h2>
+  
+    <div class="login-container">
+    
+        <form [formGroup]="miFormulario">
+            <p>Nombre:<input type="text" formControlName="nombre" [(ngModel)]="nombre" class="form-control" ></p>
+            <p>Marca:<input type="text" formControlName="marca" [(ngModel)]="marca" class="form-control"  ></p>
+            <p>Stock:<input type="number" formControlName="stock" [(ngModel)]="stock" class="form-control"  ></p>
+            <p>Tipo:<input type="text" formControlName="tipo" [(ngModel)]="tipo" class="form-control" ></p>
+            <p>Local:<input type="text" formControlName="local" [(ngModel)]="local" class="form-control"  ></p>
+            <p>Precio:<input type="number" formControlName="precio" [(ngModel)]="precio" class="form-control" ></p>
+        </form>
+        <br>
+        <p><button class="btn btn-danger" (click)="cargarLocal(nombre,marca,stock,tipo,precio,local)" [disabled]="!miFormulario.valid">Registrarse</button></p>
+    
+    </div>
+  </div>

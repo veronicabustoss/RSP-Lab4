@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#" style="color:aliceblue">Menu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item"  >
+                <a class="nav-link"  routerLink="/login" style="color:snow">Iniciar Sesion</a>
+              </li>
+              <li class="nav-item" >
+                  <a class="nav-link" routerLink="/registro" style="color:snow">Registrarse</a>
+                </li>
+                <li class="nav-item" >
+                  <a class="nav-link" routerLink="/listado" style="color:snow">Listado</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" routerLink="/form-local" style="color:snow">Cargar local</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" routerLink="/form-producto" style="color:snow">Cargar producto</a>
+                </li>
+        </ul>
+
+        <ul class="navbar-nav " *ngIf="user$ | async as user" >
+            
+            <li class="nav-item"  *ngIf="user" >
+                <a  class="nav-link">Usuario: {{user.email }}</a>
+              </li>
+            <li class="nav-item" *ngIf="user" >
+                <a class="nav-link"   routerLink="/login" (click)="deslogearse()"style="color:snow">Cerrar sesion</a>
+            </li>
+        </ul>
+            
+    </div>
+  </nav>

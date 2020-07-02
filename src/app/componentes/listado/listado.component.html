@@ -1,0 +1,34 @@
+
+    <table class="table table-bordered">
+        <thead class="thead thead-dark">
+          <tr >
+            <th scope="col">Nombre</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Local</th>
+            <th scope="col">Boton</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr *ngFor="let producto of listaProductos"> 
+            <th scope="row">{{producto.nombre | uppercase}}</th>
+            <td>{{producto.marca}}</td>
+            <td>{{producto.precio}}</td>
+            <td>{{producto.stock}}</td>
+            <td>{{producto.tipo}}</td>
+            <td>{{producto.local}}</td>
+            <td><button class="btn btn-warning" (click)="modificarProducto(producto)">Modificar</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+<div *ngIf="modificar">
+    <app-modificar-producto
+    [producto]='productoAux'
+    [auxProducto] = 'auxcargarProducto'
+    (cambio) = 'funCambiar($event)'
+    ></app-modificar-producto>
+</div>
+

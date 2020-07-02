@@ -1,0 +1,22 @@
+<div>
+    <div class="login">
+        <div class="login-triangle"></div>
+        
+        <h2 class="login-header">Cargar Producto</h2>
+      
+        <div class="login-container">
+        
+            <form >
+                <p>Nombre:<input type="text"  [(ngModel)]="productoAux.nombre" class="form-control" [ngModelOptions]="{standalone: true}"></p>
+                <p>Marca:<input type="text" [(ngModel)]="productoAux.marca" class="form-control"  [ngModelOptions]="{standalone: true}"></p>
+                <p>Stock:<input type="number" [(ngModel)]="productoAux.stock" class="form-control"  [ngModelOptions]="{standalone: true}"></p>
+                <p>Tipo:<input type="text" [(ngModel)]="productoAux.tipo" class="form-control" [ngModelOptions]="{standalone: true}"></p>
+                <p>Local:<input type="text"  [(ngModel)]="productoAux.local" class="form-control"  [ngModelOptions]="{standalone: true}"></p>
+                <p>Precio:<input type="number" [(ngModel)]="productoAux.precio" class="form-control" [ngModelOptions]="{standalone: true}"></p>
+            </form>
+            <br>
+            <p><button class="btn btn-danger" (click)="modificarProductoBD(productoAux)" >Registrarse</button></p>
+        
+        </div>
+      </div>
+</div>

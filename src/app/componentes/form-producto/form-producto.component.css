@@ -1,0 +1,88 @@
+.card
+{
+  position: absolute;
+  top: 27%;
+  left: 31%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(0, 119, 255, 0.863);
+  color:snow;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+  background: rgba(68, 85, 102, 0.685);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.login {
+  width: 450px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color:rgb(189, 32, 79);
+}
+
+.login-header {
+  background: rgb(189, 32, 79);
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.login p {
+    padding: 1px;
+    color: crimson;
+}
+
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+  
+}
+
+button {
+  
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 7px;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 1em;
+  }
